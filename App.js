@@ -71,8 +71,8 @@ export default class ViroSample extends Component {
             <MapView
               style={styles.map}
               region={{
-                latitude: 37.78825,
-                longitude: -122.4324,
+                latitude: 40.6739,
+                longitude: -73.9701,
                 latitudeDelta: 0.015,
                 longitudeDelta: 0.0121,
               }}
