@@ -1,12 +1,3 @@
-/**
- * Copyright (c) 2017-present, Viro, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
 import React, { Component } from 'react';
 
 import {
@@ -33,7 +24,6 @@ const sharedProps = {
 
 // Sets the default scene you want for AR and VR
 const InitialARScene = require('./js/HelloWorldSceneAR');
-const pinkFlag = require('./assets/flag-pink.png');
 
 const UNSET = "UNSET";
 const AR_NAVIGATOR_TYPE = "AR";

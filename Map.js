@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MapView, { Marker } from 'react-native-maps';
 import { Dimensions, StyleSheet } from 'react-native';
-
+const pinkFlag = require('./assets/flag-pink.png');
 const { width, height } = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
@@ -17,7 +17,8 @@ export default class Map extends Component {
     super();
     this.state = {
       markers: [
-        {key: 1, coordinate: { latitude: 40.6739, longitude: -73.9701 }, color: '#4bb3cb'}
+        {key: 1, coordinate: { latitude: 40.6739, longitude: -73.9701 }, color: '#4bb3cb'},
+        {key: 2, coordinate: { latitude: 40.6739, longitude: -73.9901 }, color: '#4bb3cb'}
       ]
     }
     // this.onMapPress = this.onMapPress.bind(this);
@@ -52,7 +53,6 @@ export default class Map extends Component {
           key={marker.key}
           coordinate={marker.coordinate}
           pinColor={marker.color}
-          
         />
       ))}
     </MapView>
