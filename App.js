@@ -23,7 +23,7 @@ const sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-const InitialARScene = require('./js/HelloWorldSceneAR');
+const InitialARScene = require('./js/ARScene');
 
 const UNSET = "UNSET";
 const AR_NAVIGATOR_TYPE = "AR";
@@ -155,7 +155,7 @@ const localStyles = StyleSheet.create({
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: 400,
+    height: 570,
     width: 400,
     justifyContent: 'flex-end',
     alignItems: 'center',
