@@ -61,12 +61,9 @@ export default class ViroSample extends Component {
   _getExperienceSelector() {
     return (
         <View style={styles.container}>
-            <Map/>
-            <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-            <Text style={localStyles.buttonText}>AR</Text>
-          </TouchableHighlight>
+            <Map
+              getExperienceButtonOnPress={this._getExperienceButtonOnPress}
+              />
         </View>
     );
   }
@@ -155,8 +152,8 @@ const localStyles = StyleSheet.create({
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: 570,
-    width: 400,
+    height: '100%',
+    width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
