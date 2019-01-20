@@ -50,6 +50,7 @@ var styles = StyleSheet.create({
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',  
+    backgroundColor: 'black',
   },
 });
 

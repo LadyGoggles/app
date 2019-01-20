@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import MapView, { Marker } from 'react-native-maps';
 import { Dimensions, StyleSheet } from 'react-native';
-const pinkFlag = require('./assets/flag-pink.png');
 const { width, height } = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
