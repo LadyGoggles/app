@@ -55,13 +55,7 @@ export default class Map extends Component {
           coordinate={marker.coordinate}
           pinColor={marker.color}
           onPress={this.props.getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-        >
-          <Callout tooltip>
-            <View>
-              <Text>{"what lies beneath..."}</Text>
-            </View>
-          </Callout>
-        </Marker>
+        />
       ))}
     </MapView>
     )
