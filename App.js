@@ -1,14 +1,5 @@
-/**
- * Copyright (c) 2017-present, Viro, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
 import React, { Component } from 'react';
-import MapView from 'react-native-maps';
+
 import {
   AppRegistry,
   Text,
@@ -23,22 +14,25 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
-/*
- TODO: Insert your API key below
- */
-var sharedProps = {
+import Map from './Map.js';
+
+
+
+const sharedProps = {
   apiKey:"3E69F59A-6D7B-458D-9189-D883F98D2A8D",
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/HelloWorldSceneAR');
+const InitialARScene = require('./js/HelloWorldSceneAR');
 
-var UNSET = "UNSET";
-var AR_NAVIGATOR_TYPE = "AR";
+const UNSET = "UNSET";
+const AR_NAVIGATOR_TYPE = "AR";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
-var defaultNavigatorType = UNSET;
+const defaultNavigatorType = UNSET;
+
+
 
 export default class ViroSample extends Component {
   constructor() {
@@ -54,8 +48,8 @@ export default class ViroSample extends Component {
     this._exitViro = this._exitViro.bind(this);
   }
 
-  // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
-  // if you are building a specific type of experience.
+
+
   render() {
     if (this.state.navigatorType == UNSET) {
       return this._getExperienceSelector();
@@ -64,19 +58,10 @@ export default class ViroSample extends Component {
     }
   }
 
-  // Presents the user with a choice of an AR or VR experience
   _getExperienceSelector() {
     return (
         <View style={styles.container}>
-            <MapView
-              style={styles.map}
-              region={{
-                latitude: 37.78825,
-                longitude: -122.4324,
-                latitudeDelta: 0.015,
-                longitudeDelta: 0.0121,
-              }}
-            />
+            <Map/>
             <TouchableHighlight style={localStyles.buttons}
             onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
             underlayColor={'#68a0ff'} >
@@ -112,7 +97,7 @@ export default class ViroSample extends Component {
   }
 }
 
-var localStyles = StyleSheet.create({
+const localStyles = StyleSheet.create({
   viroContainer :{
     flex : 1,
     backgroundColor: "black",
@@ -175,9 +160,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
+  
  });
 
 module.exports = ViroSample
