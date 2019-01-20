@@ -61,7 +61,10 @@ export default class ViroSample extends Component {
   _getExperienceSelector() {
     return (
         <View style={styles.container}>
-            <Map/>
+            <Map
+              getARNavigator={this._getARNavigator}
+              getExperienceButtonOnPress={this._getExperienceButtonOnPress}
+              />
             <TouchableHighlight style={localStyles.buttons}
             onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
             underlayColor={'#68a0ff'} >

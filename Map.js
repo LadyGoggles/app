@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import MapView, { Marker } from 'react-native-maps';
-import { Dimensions, StyleSheet } from 'react-native';
-const pinkFlag = require('./assets/flag-pink.png');
+import React, { Component } from 'react';
+import MapView, { Marker, Callout } from 'react-native-maps';
+import { Dimensions, StyleSheet, View, Text, TouchableHighlight } from 'react-native';
+
 const { width, height } = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.015;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+
+const UNSET = "UNSET";
+const AR_NAVIGATOR_TYPE = "AR";
 
 function randomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -53,7 +56,14 @@ export default class Map extends Component {
           key={marker.key}
           coordinate={marker.coordinate}
           pinColor={marker.color}
-        />
+          onPress={this.props.getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+        >
+          <Callout tooltip>
+            <View>
+              <Text>{"what lies beneath..."}</Text>
+            </View>
+          </Callout>
+        </Marker>
       ))}
     </MapView>
     )
@@ -63,5 +73,17 @@ export default class Map extends Component {
 const styles = {
   map: {
     ...StyleSheet.absoluteFillObject,
-  }
+  },
+  buttons : {
+    height: 20,
+    width: 50,
+    paddingTop:2,
+    paddingBottom:2,
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor:'#68a0cf',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
 }
