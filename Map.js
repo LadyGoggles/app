@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
-import { Dimensions, StyleSheet, View, Text, TouchableHighlight } from 'react-native';
+import { Dimensions, StyleSheet, View, Text } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.015;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-
-const UNSET = "UNSET";
 const AR_NAVIGATOR_TYPE = "AR";
 
 function randomColor() {
