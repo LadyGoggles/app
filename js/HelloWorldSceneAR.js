@@ -8,7 +8,10 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
+  ViroButton
 } from 'react-viro';
+
+
 
 export default class HelloWorldSceneAR extends Component {
 
@@ -22,11 +25,33 @@ export default class HelloWorldSceneAR extends Component {
 
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
+    this._onButtonGaze = this._onButtonGaze.bind(this);
+    this._onButtonTap = this._onButtonTap.bind(this);
+  }
+
+  _onButtonGaze() {
+    this.setState({
+        buttonStateTag: "onGaze"
+    });
+  }
+  _onButtonTap() {
+    this.setState({
+        buttonStateTag: "onTap"
+    });
   }
 
   render() {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
+        <ViroButton 
+          source={require('../assets/close_ar.png')}
+          position={[0, -3, -5]}
+          height={1}
+          width={1}
+          onTap={this._onButtonTap}
+          onGaze={this._onButtonGaze}
+          onClick={this.props.exitViro}
+        />
         <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
       </ViroARScene>
     );

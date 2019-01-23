@@ -22,21 +22,8 @@ export default class Map extends Component {
         {key: 2, coordinate: { latitude: 40.6739, longitude: -73.9901 }, color: '#4bb3cb'}
       ]
     }
-    // this.onMapPress = this.onMapPress.bind(this);
   }
 
-    // onMapPress(e) {
-  //   this.setState({
-  //     markers: [
-  //       ...this.state.markers,
-  //       {
-  //         coordinate: e.nativeEvent.coordinate,
-  //         key: id++,
-  //         color: randomColor(),
-  //       },
-  //     ],
-  //   });
-  // }
 
   render() {
     return (
