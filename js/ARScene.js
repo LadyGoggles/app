@@ -8,7 +8,9 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
-  ViroFlexView
+  ViroFlexView,
+  ViroBox,
+  ViroMaterials
 } from 'react-viro';
 
 export default class ARScene extends Component {
@@ -31,22 +33,34 @@ export default class ARScene extends Component {
   render() {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
-        <ViroFlexView
+        <ViroBox
+          position={[0, 0, -2]} 
+          height={.815}
+          length={.5}
+          width={.5}
+          materials={["susie"]} 
+          onClick={this._onClick}/>
+        <ViroBox
+          position={[0, -.66, -2]} 
+          scale={[.5, .5, .5]}
+          materials={["stone"]} 
+          onClick={this._onClick}/>
+        {/*<ViroFlexView
           style={{flexDirection: 'column', padding: .1}} 
           width={2.0} height={3.5} 
           position={[0, 0, -4]}
           backgroundColor='rgba(0, 0, 0, 0.8)'
           onClick={this._onClick}>
         </ViroFlexView>
-        <ViroText 
+                <ViroText 
           text={this.state.headerText} 
-          position={[0, .2, -3]} 
+          position={[0, -1.85, -3]} 
           style={styles.headerTextStyle} 
           width={1.3} height={2}
           onClick={this._onClick}/>
         <ViroText 
           text={this.state.subheaderText} 
-          position={[0, -0.08, -3]} 
+          position={[0, -2.15, -3]} 
           style={styles.subheaderTextStyle} 
           width={1.3} height={2}
           onClick={this._onClick}/>
@@ -55,7 +69,7 @@ export default class ARScene extends Component {
           position={[0, -2, -3]} 
           style={styles.textStyle} 
           width={1.3} height={2}
-          onClick={this._onClick}/>
+        onClick={this._onClick}/>*/}
       </ViroARScene>
     );
   }
@@ -63,8 +77,8 @@ export default class ARScene extends Component {
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        headerText : "Susie Taylor",
-        subheaderText: "(1848-1912)\nSusie Taylor was the first African American Nurse in the US Army, the first African American person to teach openly in schools, and the author of 'Reminiscences of My Life in Camp with the 33d United States Colored Troops, Late 1st S.C. Volunteers,' the only published memoir of wartime experiences by an African American Woman.",
+        headerText : "Susie King Taylor",
+        subheaderText: "(1848-1912)",
         text: "Tap for more info."
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
@@ -80,14 +94,14 @@ export default class ARScene extends Component {
 var styles = StyleSheet.create({
   headerTextStyle: {
     fontFamily: 'Arial',
-    fontSize: 20,
-    color: '#ffffff',
+    fontSize: 10,
+    color: 'black',
     textAlign: 'center',  
   },
   subheaderTextStyle: {
     fontFamily: 'Arial',
     fontSize: 10,
-    color: '#ffffff',
+    color: 'black',
     textAlign: 'center',  
   },
   textStyle: {
@@ -100,6 +114,15 @@ var styles = StyleSheet.create({
     height: 3,
     width: 2
   }
+});
+
+ViroMaterials.createMaterials({
+  susie: {
+    diffuseTexture: require('./res/Susie_King_Taylor.jpg'),
+  },
+  stone: {
+    diffuseTexture: require('./res/stone.jpg'),
+  },
 });
 
 module.exports = ARScene;
