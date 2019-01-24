@@ -8,9 +8,11 @@ import {
   ViroARScene,
   ViroConstants,
   ViroBox,
-  ViroMaterials
+  ViroMaterials,
+  ViroButton
 } from 'react-viro';
 
+import { xStatue, yStatue, zStatue, xButton, yButton, zButton } from '../assets/ARConstants';
 export default class ARScene extends Component {
 
   constructor() {
@@ -31,7 +33,7 @@ export default class ARScene extends Component {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
         <ViroBox
-          position={[0, 0, -2]} 
+          position={[xStatue, yStatue, zStatue]} 
           height={.815}
           length={.5}
           width={.5}
@@ -42,6 +44,13 @@ export default class ARScene extends Component {
           scale={[.5, .5, .5]}
           materials={["stone"]} 
           onClick={this._onClick}/>
+          <ViroButton 
+          source={require('../assets/close_ar.png')}
+          position={[-.15, 0.4, -1]}
+          height={.1}
+          width={.1}
+          onClick={this.props.exitViro}
+        />
       </ViroARScene>
     );
   }
