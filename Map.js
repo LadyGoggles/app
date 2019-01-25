@@ -86,9 +86,16 @@ export default class Map extends Component {
             // onPress={this.props.getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
           >
             <Callout styles={styles.callout}>
-              <MyCallout/>
-              {/*<Image source={{uri: 'https://en.wikipedia.org/wiki/Susie_Taylor#/media/File:Susie_King_Taylor.jpg' }}/>
+              {/*<MyCallout/>
+              *<Image source={{uri: 'https://en.wikipedia.org/wiki/Susie_Taylor#/media/File:Susie_King_Taylor.jpg' }}/>
               <Text>Susie King Taylor</Text>*/}
+              <View>
+            {/*<Image
+              style={styles.image}
+              source={require('./89px-Susie-King-Taylor.jpg')}
+            />*/}
+                <Text>Susie King Taylor (August 6, 1848 – October 6, 1912) was the first Black Army nurse.</Text>
+              </View>
             </Callout>
           </Marker>
         ))}
@@ -132,7 +139,8 @@ const styles = {
     opacity: 0.5
   },
   callout: {
-    width: 140,
+    width: 145,
+    height: 80
   }
 }
 

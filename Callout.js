@@ -13,11 +13,11 @@ export default class MyCallout extends Component {
       <View style={styles.container}>
         <View style={styles.bubble}>
           <View>
-            <Image
+            {/*<Image
               style={styles.image}
               source={require('./89px-Susie-King-Taylor.jpg')}
-            />
-            <Text style={styles.name}>Susie King Taylor</Text>
+            />*/}
+            <Text style={styles.content}>Susie King Taylor (August 6, 1848 – October 6, 1912) was the first Black Army nurse.</Text>
           </View>
         </View>
         <View style={styles.arrowBorder} />
@@ -65,6 +65,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
   },
+  content: {
+    fontSize: 12,
+    marginTop: 2,
+    marginBottom: 5
+  }
   // Character image
   image: {
     width: 120,
