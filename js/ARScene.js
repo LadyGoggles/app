@@ -46,7 +46,7 @@ export default class ARScene extends Component {
           onClick={this._onClick}/>
           <ViroButton 
           source={require('../assets/close_ar.png')}
-          position={[-.15, 0.4, -1]}
+          position={[xButton, yButton, zButton]}
           height={.1}
           width={.1}
           onClick={this.props.exitViro}
