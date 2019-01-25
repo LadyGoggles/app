@@ -50,6 +50,8 @@ export default class ARScene extends Component {
           height={.1}
           width={.1}
           onClick={this.props.exitViro}
+          
+          dragType="FixedToWorld"
         />
       </ViroARScene>
     );
