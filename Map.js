@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
 import { Dimensions, StyleSheet, View, Text, Image, TouchableHighlight} from 'react-native';
+import Callout from './Callout.js'
 
 const { width, height } = Dimensions.get('window');
 
@@ -82,8 +83,14 @@ export default class Map extends Component {
             key={marker.key}
             coordinate={marker.coordinate}
             pinColor={marker.color}
-            onPress={this.props.getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-          />
+            calloutOffset={{ x: -8, y: 28 }}
+            //onPress={this.props.getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+          >
+            <Callout tooltip style={styles.callout}>
+                <Image styleName="medium-wide"
+                  source={{uri: 'https://en.wikipedia.org/wiki/Susie_Taylor#/media/File:Susie_King_Taylor.jpg'}} />
+            </Callout>
+          </Marker>
         ))}
       </MapView>
       <TouchableHighlight 
@@ -123,5 +130,8 @@ const styles = {
     height: 50,
     width: 50,
     opacity: 0.5
+  },
+  callout: {
+    width: 140,
   }
 }
